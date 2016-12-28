@@ -20,7 +20,7 @@ This repository contains **Dockerfile** for [Docker](https://www.docker.com/)'s 
 
 ### Usage
 
-#### Run `ubuntu-data-volume`
+#### Run `docker-data-volume`
 
     docker run -d cpgonzal/docker-data-volume
 
