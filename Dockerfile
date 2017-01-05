@@ -17,7 +17,7 @@ RUN mkdir -p $libs_root \
 
 
 # persist data, set user
-VOLUME [$data_root, $libs_root]
+VOLUME $data_root $libs_root
 
 USER $user
 
