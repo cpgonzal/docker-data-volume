@@ -1,12 +1,20 @@
+# Set the base image
 FROM ubuntu
+# Dockerfile author / maintainer 
+MAINTAINER Carlos P. <cpgonzal@gmail.com> 
 
-ENV user bigdata
-ENV data_root /data
-ENV libs_root /libraries
+ARG guid
+ARG user
+ARG data_root
+ARG libs_root
+ENV guid ${guid:-900}
+ENV user ${user:-docker}
+ENV data_root ${data_root:-/data}
+ENV libs_root ${libs_root:-/libraries}
 
 # set user right away for determinism
-RUN groupadd -r $user \
-  && useradd -r -s /bin/false -g $user $user
+RUN groupadd -r -g $guid $user \
+  && useradd -r -s /bin/false -g $user -u $guid $user
 
 # create directory for persistence and give our user ownership
 RUN mkdir -p $data_root \
