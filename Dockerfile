@@ -30,6 +30,7 @@ RUN mkdir -p $DATA_ROOT \
 RUN mkdir -p $LIBS_ROOT \
   && chown -R $USER:$USER $LIBS_ROOT
 
+RUN echo "umask 002" >> /etc/profile
 
 # persist data, set user
 VOLUME $DATA_ROOT $LIBS_ROOT
