@@ -30,7 +30,8 @@ RUN mkdir -p $DATA_ROOT \
 RUN mkdir -p $LIBS_ROOT \
   && chown -R $USER:$USER $LIBS_ROOT
 
-RUN echo "umask 002" >> /etc/profile
+#Assigns write permission to group
+RUN echo "umask 0002" >> /etc/bash.bashrc
 
 # persist data, set user
 VOLUME $DATA_ROOT $LIBS_ROOT
